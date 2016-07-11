@@ -1,0 +1,125 @@
+body {
+    position: relative;
+}
+
+.copy {
+    font-family: "Lora", serif;
+}
+
+.title {
+    font-family: "Karla", sans-serif;
+}
+
+/* HERO */
+
+.header-box {
+    background: url(hero.png) center;
+    -webkit-filter: brightness(55%);
+    filter: brightness(55%);
+    height: 575px;
+    padding: 0;
+    position: relative;
+    text-align: center;
+    top: -72px;
+    width: 100%;
+}
+
+.header-title {
+    color: #eff4f5;
+    font-size: 4em;
+    font-weight: 700;
+    margin: 0 5%;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    width: 90%;
+}
+
+.header-copy {
+    height: 575px;
+    padding: 0;
+    position: absolute;
+    text-align: center;
+    top: -72px;
+    width: 100%;
+    z-index: 99;
+}
+
+.header-button {
+    border: 2px solid #eff4f5;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 1.5em;
+    margin: 0 41%;
+    padding: 6px 0;
+    position: absolute;
+    text-transform: uppercase;
+    top: 70%;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 18%;
+}
+
+.header-button::before {
+    background-color: #4ddbff;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    z-index: -1;
+}
+
+.header-button:hover {
+    border: 2px solid #4ddbff;
+}
+
+.header-button:hover::before {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.header-button a {
+    color: #eff4f5;
+    text-decoration: none;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.header-button:hover a {
+    color: #212121;
+}
+
+/* CONTENT */
+.intro-copy {
+    border-left: 1px solid #4ddbff;
+    margin-left: 34%;
+    padding-left: 30px;
+    width: 58%;
+}
+
+.intro-title {
+    font-weight: 700;
+    font-size: 3.5em;
+    margin: 50px 0 45px 34%;
+    width: 46%;
+}
+
+.intro-copy p {
+    font-size: 1.35em;
+    hyphens: auto;
+    line-height: 1.6;
+    margin: 25px 0;
+    text-align: justify;
+}
+
+
+/* FOOTER */

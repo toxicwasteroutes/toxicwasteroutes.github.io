@@ -1,0 +1,475 @@
+/* general styles */
+body {
+    background-color: #eff4f5;
+    margin: 0;
+    position: relative;
+}
+
+.legend-text {
+    font-family: "PT Serif", serif;
+}
+
+.map-text {
+    font-family: "Karla", sans-serif;
+}
+
+.blue {
+    color: #3AAED6;
+}
+
+.grey {
+    color: #95A0A0;
+}
+
+.yellow {
+    color: #FF9F00;
+}
+
+.red {
+    color: #AA2727;
+}
+
+/* animation keyframes */
+@-webkit-keyframes pulse {
+    0%, 40% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@keyframes pulse {
+    0%, 40% {opacity: 1;}
+    100% {opacity: 0;}
+}
+
+@-webkit-keyframes glow {
+  50% { box-shadow: inset 0 0 3px gold, 0 0 24px gold; }
+}
+
+@keyframes glow {
+  50% { box-shadow: inset 0 0 3px gold, 0 0 24px gold; }
+}
+
+/* legend, boxes and titles */
+.map-title {
+    font-size: 1.5em;
+    left: 18px;
+    position: absolute;
+    width: 320px;
+    z-index: 99;
+}
+
+.box {
+    background-color: #eff4f5;
+    border: 1px solid #212121;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #95a0a0;
+    opacity: 0;
+    padding: 7px 8px 4px 16px;
+    position: absolute;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.box p {
+    font-size: 0.9em;
+    margin: 8px 0 2px;
+}
+
+.box div,
+.legend div {
+    display: inline-block;
+    font-size: 0.75em;
+}
+
+.box span,
+.legend span {
+    padding-right: 29px;
+}
+
+.box text,
+.legend text{
+    font-size: 0.8em;
+}
+
+.next {
+    -moz-animation: pulse 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -o-animation: pulse 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    -webkit-animation: pulse 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    animation: pulse 2s cubic-bezier(0.645, 0.045, 0.355, 1) infinite alternate;
+    bottom: 0;
+    color: #2f3e9e;
+    cursor: pointer;
+    float: right;
+    font-size: 2.4em;
+    font-style: normal;
+    padding-right: 6px;
+    text-align: right;
+}
+
+.legend {
+    background-color: #eff4f5;
+    border: 1px solid #212121;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #95a0a0;
+    right: 10px;
+    padding: 0 0 3px 10px;
+    position: absolute;
+    opacity: 0;
+    top: -2px;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    z-index: 99;
+}
+
+.legend div {
+    -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+/* country dots */
+.boundary {
+    fill: none;
+    stroke: #727272;
+    stroke-width: .5px;
+    opacity: 0;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.country-square {
+    fill: #212121;
+    opacity: 0;
+    stroke: none;
+    stroke-width: 0px;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.country-text {
+    font-size: 0.65em;
+    font-weight: 400;
+    margin: 0;
+    opacity: 0;
+    position: absolute;
+    -webkit-transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.non-party {
+    -webkit-animation: glow 1s ease-in-out;
+    animation: glow 1s ease-in-out;
+}
+
+/* animation */
+.cargo {
+    fill: #aa2727;
+}
+
+/* treemap */
+.treemaps, .names {
+    left: 0;
+    position: absolute;
+    top: 0;
+}
+
+.treemap {
+    cursor: pointer;
+    position: absolute;
+}
+
+.cell {
+    overflow: hidden;
+    position: absolute;
+}
+
+.cell-hover {
+    background-color: cornsilk;
+    -webkit-filter: opacity(50%);
+    filter: opacity(50%);
+}
+
+/* interaction layer */
+
+.overlay {
+    background-color: rgba(239, 244, 245, 0.8);
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 98;
+}
+
+/* modal */
+
+.modal {
+    background-color: #eff4f5;
+    border: 1px solid #212121;
+    border-radius: 2px;
+    box-shadow: 0 1px 2px #95a0a0;
+    position: absolute;
+    width: 800px;
+    z-index: 99;
+}
+
+.modal-label {
+    float: left;
+    width: 270px;
+}
+
+.modal-title {
+    font-size: 1.1em;
+    font-weight: 700;
+    margin: 15px 0 2px 45px;
+    vertical-align: -3.5px;
+}
+
+.modal-subtitle {
+    font-size: 0.75em;
+    margin: 0 0 2px 45px;
+}
+
+.flag-icon {
+    margin: 0 6px 0 18px;
+    position: absolute;
+    top: 18px;
+}
+
+.modal-svg {
+    margin-left: 70px;
+    margin-top: 40px;
+    overflow: visible;
+}
+
+.line {
+    fill: none;
+    stroke-linecap: round;
+    stroke-width: 2px;
+}
+
+.line-imp {
+    stroke: #FF9F00;
+}
+
+.line-exp {
+    stroke: #AA2727;
+}
+
+.line-year {
+    stroke: #2f3e9e;
+    stroke-dasharray: 3, 5;
+    stroke-width: 1.5px;
+}
+
+.text-year {
+    font-size: 0.65em;
+    font-weight: 700;
+    fill: #2f3e9e;
+}
+
+.modal-left,
+.modal-right {
+    margin: 20px 0 10px;
+    text-align: center;
+}
+
+.modal-left {
+    float: left;
+    width: 50%;
+}
+
+.modal-right {
+    float: right;
+    width: 50%;
+}
+
+.modal-copy {
+    margin: 0;
+}
+
+.modal-amount {
+    font-size: 1.2em;
+    margin: 15px 0 10px;
+}
+
+.modal-treemap {
+    float: right;
+    text-align: center;
+    width: 530px;
+}
+
+.treemap-container {
+    position: relative;
+}
+
+.treemap-container .cell {
+    cursor: pointer;
+}
+
+.text-noMatch {
+    margin-top: 122px;
+}
+
+.tooltip {
+    clear: both;
+}
+
+.tooltip-copy {
+    padding-left: 18px;
+}
+
+.tooltip-title {
+    font-size: 0.9em;
+    font-weight: 700;
+    margin: 10px 0 2px;
+}
+
+.tooltip-title:first-child {
+    padding-top: 40px;
+}
+
+.tooltip-text {
+    font-size: 0.85em;
+    margin: 3px 0 4px;
+}
+
+.modal-close {
+    position: absolute;
+    right: 15px;
+    top: 14px;
+}
+
+.fa.fa-times {
+    color: #212121;
+    cursor: pointer;
+}
+
+.filter-box {
+    padding: 7px 14px;
+    right: 10px;
+    top: 45px;
+    -webkit-transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: opacity 1s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 368px;
+    z-index: 97;
+}
+
+.box .filter-title {
+    font-weight: 700;
+    margin: 4px 0 2px;
+}
+
+.box .filter-flex {
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 39px;
+    -webkit-justify-content: space-between;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.box .filter-time {
+    height: 9.5px;
+    text-align: right;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 26.5px;
+}
+
+.box .filter-line {
+    background-color: #212121;
+    height: 4px;
+    width: 100%;
+}
+
+.box .filter-line:first-of-type {
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+}
+
+.box .filter-line:last-of-type {
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+}
+
+.box .filter-year {
+    color: #95A0A0;
+    font-size: 1.05em;
+    margin: 0;
+}
+
+.box .filter-circle {
+    border: 1px solid #95A0A0;
+    border-radius: 50%;
+    cursor: pointer;
+    height: 14.6px;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 14.6px;
+}
+
+.box .flex-active {
+    background-color: #2F3E9E;
+    border: 1px solid #2F3E9E;
+}
+
+.box .text-active .filter-year {
+    color: #2F3E9E;
+    font-weight: 700;
+}
+
+.filter-select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    border: 1px solid #95A0A0;
+    border-radius: 2px;
+    color: #212121;
+    cursor: pointer;
+    font-size: 0.8em;
+    height: 30px;
+    margin: 10px 0 2px;
+    max-width: 200px;
+    overflow: hidden;
+    padding-left: 2px;
+    padding-right: 10px;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.filter-select:hover,
+.filter-select:focus {
+    border: 2px solid #2f3e9e;
+}
+
+.filter-select option {
+    max-width: 342px;
+    overflow: hidden;
+    position: relative;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.filter-button {
+    background-color: #2f3e9e;
+    border-radius: 2px;
+    color: #eff4f5;
+    cursor: pointer;
+    font-size: 0.9em;
+    margin-left: 40px;
+    padding: 6px 24px;
+    text-decoration: none;
+}
+.filter-button:hover,
+.filter-button:focus,
+.filter-button:visited {
+    color: #eff4f5;
+    text-decoration: none;
+}
+
+/* leave as last */
+.visible {
+    opacity: 1;
+}
