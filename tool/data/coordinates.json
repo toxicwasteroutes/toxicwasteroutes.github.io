@@ -117,7 +117,7 @@
 	"Montenegro": {"lat": 42, "long": 19, "countryCode": "ME", "party": [true, true, true, true, true, true, true], "report": [true, false, true, true, true, true, true], "name": "Montenegro", "oecd": false}, 
 	"Morocco": {"lat": 32, "long": -5, "countryCode": "MA", "party": [true, true, true, true, true, true, true], "report": [true, false, false, false, true, true, true], "name": "Morocco", "oecd": false}, 
 	"Mozambique": {"lat": -18.25, "long": 35, "countryCode": "MZ", "party": [true, true, true, true, true, true, true], "report": [true, false, false, false, false, false, true], "name": "Mozambique", "oecd": false}, 
-	"Myanmar": {"lat": 22, "long": 98, "countryCode": "MM", "party": [true, true, true, true, true, true, true], "report": [false, false, false, false, false, false, false], "name": "Myanmar", "oecd": false}, 
+	"Myanmar": {"lat": 22, "long": 98, "countryCode": "MM", "party": [false, false, false, false, false, false, false], "report": [false, false, false, false, false, false, false], "name": "Myanmar", "oecd": false}, 
 	"Namibia": {"lat": -22, "long": 17, "countryCode": "NA", "party": [true, true, true, true, true, true, true], "report": [false, false, false, false, false, false, false], "name": "Namibia", "oecd": false}, 
 	"Nauru": {"lat": -0.5333, "long": 166.9167, "countryCode": "NR", "party": [true, true, true, true, true, true, true], "report": [false, false, false, false, false, false, false], "name": "Nauru", "oecd": false}, 
 	"Nepal": {"lat": 28, "long": 84, "countryCode": "NP", "party": [true, true, true, true, true, true, true], "report": [false, false, false, false, false, true, false], "name": "Nepal", "oecd": false}, 

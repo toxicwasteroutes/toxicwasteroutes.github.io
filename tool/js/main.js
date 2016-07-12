@@ -349,7 +349,7 @@ function loaded(error, world, points, movements) {
             });
 
         box.append("p")
-            .html("Not all countries take part in the Convention. <br/>The U.S. - among the world’s largest generators of hazardous waste - has never ratified it. Currently, <br/>the treaty is in force in 182 of the 195 sovereign states recognized worldwide.")
+            .html("Not all countries take part in the Convention. <br/>The U.S. - among the world’s largest generators of hazardous waste - has never ratified it. Currently, <br/>the treaty is in force in 183 of the 195 sovereign states recognized worldwide.")
             .attr("class", "legend-text");
 
         var boxItem = box.selectAll("div")
