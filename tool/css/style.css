@@ -58,6 +58,59 @@ body {
     z-index: 99;
 }
 
+.map-subtitle {
+    font-size: 0.9em;
+    font-weight: 400;
+    left: 18px;
+    pointer-events: none;
+    position: absolute;
+    top: 73px;
+    width: 320px;
+    z-index: 99;
+}
+
+.map-button {
+    bottom: 24px;
+    font-size: 0.8em;
+    left: 18px;
+    position: absolute;
+    width: 187px;
+    z-index: 99;
+}
+
+.map-button::after {
+    border-bottom: 1px solid #212121;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    z-index: -1;
+}
+
+.map-button:hover::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.map-button a {
+    color: #212121;
+    font-weight: 400;
+    text-decoration: none;
+}
+
+.map-button a:hover,
+.map-button a:focus {
+    color: #212121;
+}
+
 .box {
     background-color: #eff4f5;
     border: 1px solid #212121;
