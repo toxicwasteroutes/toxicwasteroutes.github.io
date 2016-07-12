@@ -1387,7 +1387,7 @@ function loaded(error, world, points, movements) {
                     totalImport = 0,
                     sumValues = 0;
                 
-                console.log(sumValues);
+                //console.log(sumValues);
                 //console.log(match);
                 overlay = !overlay;
 
@@ -1577,7 +1577,7 @@ function loaded(error, world, points, movements) {
                     .attr("class", "modal-copy red legend-text")
                     .text("Export");
                 
-                console.log(sumValues);
+                //console.log(sumValues);
                 //append treemap div
                 if(match != undefined && sumValues != 0) {
                     var modalTreemapContainer = modalContainer.append("div")
