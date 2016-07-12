@@ -804,8 +804,29 @@ function loaded(error, world, points, movements) {
         force.start();
 
         countryList.forEach(function (d) {
-            amountRange.push(d.total);
+            if(filter != null) {
+                d.filterTotal = updateTotal(d);
+            }
+            else {
+                d.filterTotal = d.total;
+            }
+            amountRange.push(d.filterTotal);
         })
+        
+        //update total according to filter
+        function updateTotal(d){
+            var tot = 0;
+            d.connections.forEach(function(e){
+                e.partners.forEach(function(f){
+                    f.subdivisions.forEach(function(g){
+                        if(g.category.indexOf(filter) > -1){
+                            tot +=g.amount;
+                        }
+                    })
+                })
+            });
+            return tot;
+        }
 
         var side = d3.scale.sqrt()
             .domain([0, d3.max(amountRange)])
@@ -834,7 +855,7 @@ function loaded(error, world, points, movements) {
                 });
 
             if (typeof match != "undefined") {
-                nodes[i].r = side(match.total);
+                nodes[i].r = side(match.filterTotal);
                 var newSize = nodes[i].r * 2,
                     treemap = d3.layout.treemap()
                     .size([newSize, newSize])
