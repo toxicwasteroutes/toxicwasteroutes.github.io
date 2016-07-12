@@ -52,6 +52,7 @@ body {
 .map-title {
     font-size: 1.5em;
     left: 18px;
+    pointer-events: none;
     position: absolute;
     width: 320px;
     z-index: 99;
