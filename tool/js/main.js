@@ -1175,7 +1175,7 @@ function loaded(error, world, points, movements) {
         categoriesCode.forEach(function(code){
             var match = baselCategories.find(function(d){
                 return code == d.code;
-            })
+            });
             categoriesArray.push(match.label);
         })
         
@@ -1366,7 +1366,7 @@ function loaded(error, world, points, movements) {
     function isolateCountry(d) {
         if (interaction) {
             if(!overlay){
-                console.log(d);
+                //console.log(d);
                 var country = d.country,
                     fullName = d.fullName,
                     label = d.label,
@@ -1384,8 +1384,10 @@ function loaded(error, world, points, movements) {
                     exportArray = [],
                     importArray = [],
                     totalExport = 0,
-                    totalImport = 0;
-
+                    totalImport = 0,
+                    sumValues = 0;
+                
+                console.log(sumValues);
                 //console.log(match);
                 overlay = !overlay;
 
@@ -1458,28 +1460,28 @@ function loaded(error, world, points, movements) {
                         importArray.push({x: years[j], y: 0});
                         exportArray.push({x: years[j], y: 0});
                     } else if(found.connections.length == 2) {
-                        console.log(found.connections);
+                        //console.log(found.connections);
                         if(found.connections[0].type == "Import") {
-                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
-                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[1]))});
+                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0], j))});
+                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[1], j))});
                         } else {
-                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[1]))});
-                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
+                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[1], j))});
+                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0], j))});
                         }
                     } else {
-                        console.log(found.connections);
+                        //console.log(found.connections);
                         if(found.connections[0].type == "Import") {
-                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
+                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0], j))});
                             exportArray.push({x: years[j], y: 0});
                         } else {
                             importArray.push({x: years[j], y: 0});
-                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
+                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0], j))});
                         }
                     }
                 };
                 //
                 //update total according to filter
-                function updateLineTotal(e) {
+                function updateLineTotal(e, j) {
                     var tot = 0;
                     if(filter != null){
                         e.partners.forEach(function (f) {
@@ -1490,7 +1492,13 @@ function loaded(error, world, points, movements) {
                             })
                         });
                     } else {
-                        return e.subtotal;
+                        if(j == year) {
+                            sumValues = e.subtotal;
+                        }
+                        return  e.subtotal;
+                    }
+                    if(j == year) {
+                        sumValues += tot;
                     }
                     return tot;
                 }
@@ -1569,8 +1577,9 @@ function loaded(error, world, points, movements) {
                     .attr("class", "modal-copy red legend-text")
                     .text("Export");
                 
+                console.log(sumValues);
                 //append treemap div
-                if(match != undefined) {
+                if(match != undefined && sumValues != 0) {
                     var modalTreemapContainer = modalContainer.append("div")
                         .attr("class", "modal-treemap"),
                         treemapDimensions = 450,
@@ -1668,7 +1677,14 @@ function loaded(error, world, points, movements) {
                             } else if (!report) {
                                 return "Data missing - " + fullName + " did not provide the due report in " + years[year];
                             } else {
-                                return fullName + " declared no movements in " + years[year];
+                                if (filter != null){
+                                    var filterLabel = baselCategories.find(function(d){
+                                        return filter == d.code;
+                                    });
+                                    return fullName + " declared no movements in " + years[year] + " related to " + filterLabel.label.toLowerCase();
+                                } else {
+                                    return fullName + " declared no movements in " + years[year];
+                                }
                             }
                         });
                 }
