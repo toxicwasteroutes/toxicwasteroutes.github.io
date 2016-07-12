@@ -1458,24 +1458,43 @@ function loaded(error, world, points, movements) {
                         importArray.push({x: years[j], y: 0});
                         exportArray.push({x: years[j], y: 0});
                     } else if(found.connections.length == 2) {
+                        console.log(found.connections);
                         if(found.connections[0].type == "Import") {
-                            importArray.push({x: years[j], y: Math.round(found.connections[0].subtotal)});
-                            exportArray.push({x: years[j], y: Math.round(found.connections[1].subtotal)});
+                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
+                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[1]))});
                         } else {
-                            importArray.push({x: years[j], y: Math.round(found.connections[1].subtotal)});
-                            exportArray.push({x: years[j], y: Math.round(found.connections[0].subtotal)});
+                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[1]))});
+                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
                         }
                     } else {
+                        console.log(found.connections);
                         if(found.connections[0].type == "Import") {
-                            importArray.push({x: years[j], y: Math.round(found.connections[0].subtotal)});
+                            importArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
                             exportArray.push({x: years[j], y: 0});
                         } else {
                             importArray.push({x: years[j], y: 0});
-                            exportArray.push({x: years[j], y: Math.round(found.connections[0].subtotal)});
+                            exportArray.push({x: years[j], y: Math.round(updateLineTotal(found.connections[0]))});
                         }
                     }
                 };
-                
+                //
+                //update total according to filter
+                function updateLineTotal(e) {
+                    var tot = 0;
+                    if(filter != null){
+                        e.partners.forEach(function (f) {
+                            f.subdivisions.forEach(function (g) {
+                                if (g.category.indexOf(filter) > -1) {
+                                    tot += g.amount;
+                                }
+                            })
+                        });
+                    } else {
+                        return e.subtotal;
+                    }
+                    return tot;
+                }
+
                 //draw line chart
                 var svgWidth = 130,
                     svgHeight = 60,
