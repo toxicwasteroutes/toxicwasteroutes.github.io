@@ -1341,14 +1341,7 @@ function loaded(error, world, points, movements) {
             })
             .text(function(d){
                 return d.label;
-            })
-            /*.append("span")
-            .attr({
-                class: "filter-tooltip"
-            })
-            .text(function(d){
-                return d.label;
-            })*/;
+            });
         
         filterBox.append("a")
             .attr({

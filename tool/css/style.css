@@ -308,6 +308,7 @@ body {
 
 .text-noMatch {
     margin-top: 122px;
+    padding-right: 10px;
 }
 
 .tooltip {
