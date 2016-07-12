@@ -1,5 +1,5 @@
 $(document).ready(function () {
     $(".header-button").click(function () {
-        window.location.href = "/tool/index.html";
+        window.location.href = "/tool";
     });
 });
