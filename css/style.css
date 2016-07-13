@@ -10,6 +10,7 @@ body {
     font-family: "Karla", sans-serif;
 }
 
+
 /* HERO */
 
 .header-box {
@@ -26,7 +27,7 @@ body {
 
 .header-title {
     color: #eff4f5;
-    font-size: 4em;
+    font-size: 3.4em;
     font-weight: 700;
     margin: 0 5%;
     position: absolute;
@@ -51,14 +52,14 @@ body {
     border-radius: 2px;
     cursor: pointer;
     font-size: 1.5em;
-    margin: 0 41%;
+    margin: 0 13%;
     padding: 6px 0;
     position: absolute;
     text-transform: uppercase;
     top: 64%;
     -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
     transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
-    width: 18%;
+    width: 74%;
 }
 
 .header-button::before {
@@ -98,27 +99,29 @@ body {
     color: #212121;
 }
 
+
 /* CONTENT */
+
 .intro-copy {
-    margin: 0 21% 75px;
-    width: 58%;
+    margin: 0 13% 75px;
+    width: 74%;
 }
 
 .intro-title {
     font-weight: 700;
-    font-size: 3.5em;
-    margin: 50px 0 45px 21%;
-    width: 46%;
+    font-size: 3em;
+    margin: 50px 0 45px 13%;
+    width: 74%;
 }
 
 .intro-subtitle {
-    font-size: 2.5em;
+    font-size: 2.4em;
     font-weight: 700;
-    margin: 0 0 0 21%;
+    margin: 0 0 0 13%;
 }
 
 .intro-copy p {
-    font-size: 1.35em;
+    font-size: 1.25em;
     hyphens: auto;
     line-height: 1.6;
     margin: 25px 0;
@@ -131,7 +134,7 @@ body {
 
 .intro-link {
     color: #212121;
-    font-size: 1.4em;
+    font-size: 1.35em;
     font-weight: 700;
     position: relative;
     text-decoration: none;
@@ -174,7 +177,7 @@ body {
 
 .intro-names {
     color: #212121;
-    font-size: 1.4em;
+    font-size: 1.35em;
     font-weight: 700;
 }
 
@@ -185,8 +188,9 @@ body {
 }
 
 .copy-link {
-    font-size: 1em;
+    font-size: 1.05em;
 }
+
 
 /* FOOTER */
 
@@ -194,4 +198,75 @@ body {
     background-color: #212121;
     height: 240px;
     padding: 75px 0;
+}
+
+@media (min-width: 768px) {
+    .header-title {
+        font-size: 4em;
+    }
+    .header-button {
+        margin: 0 38%;
+        width: 24%;
+    }
+    .intro-copy {
+        margin: 0 10% 75px;
+        width: 80%;
+    }
+    .intro-title {
+        font-size: 3.5em;
+        margin: 50px 0 45px 10%;
+        width: 72%;
+    }
+    .intro-subtitle {
+        font-size: 2.5em;
+        margin: 0 0 0 10%;
+    }
+    .intro-copy p {
+        font-size: 1.35em;
+    }
+    .intro-link {
+        font-size: 1.4em;
+    }
+    .intro-names {
+        font-size: 1.4em;
+    }
+    .copy-link {
+        font-size: 1em;
+    }
+}
+
+@media (min-width: 992px) {
+    .header-button {
+        margin: 0 40%;
+        width: 20%;
+    }
+    .intro-copy {
+        margin: 0 15.5% 75px;
+        width: 69%;
+    }
+    .intro-title {
+        margin: 50px 0 45px 15.5%;
+        width: 56%;
+    }
+    .intro-subtitle {
+        margin: 0 0 0 15.5%;
+    }
+}
+
+@media (min-width: 1200px) {
+    .header-button {
+        margin: 0 41%;
+        width: 18%;
+    }
+    .intro-copy {
+        margin: 0 21% 75px;
+        width: 58%;
+    }
+    .intro-title {
+        margin: 50px 0 45px 21%;
+        width: 46%;
+    }
+    .intro-subtitle {
+        margin: 0 0 0 21%;
+    }
 }
