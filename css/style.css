@@ -100,9 +100,7 @@ body {
 
 /* CONTENT */
 .intro-copy {
-/*    border-left: 1px solid #4ddbff;*/
-    margin: 0 21% 120px;
-/*    padding-left: 30px;*/
+    margin: 0 21% 75px;
     width: 58%;
 }
 
@@ -113,6 +111,12 @@ body {
     width: 46%;
 }
 
+.intro-subtitle {
+    font-size: 2.5em;
+    font-weight: 700;
+    margin: 0 0 0 21%;
+}
+
 .intro-copy p {
     font-size: 1.35em;
     hyphens: auto;
@@ -121,7 +125,7 @@ body {
     text-align: justify;
 }
 
-.intro-copy p:last-of-type {
+.pre-link {
     margin-bottom: 35px;
 }
 
@@ -129,14 +133,60 @@ body {
     color: #212121;
     font-size: 1.4em;
     font-weight: 700;
+    position: relative;
     text-decoration: none;
+}
+
+.intro-link::after {
+    border-bottom: 1px solid #212121;
+    content: "";
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    -webkit-transform: scaleX(0);
+    transform: scaleX(0);
+    -webkit-transform-origin: 0 0;
+    transform-origin: 0 0;
+    -webkit-transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    transition: all 0.5s cubic-bezier(0.645, 0.045, 0.355, 1);
+    width: 100%;
+    z-index: -1;
+}
+
+.intro-link:hover::after {
+    -webkit-transform: scaleX(1);
+    transform: scaleX(1);
+}
+
+.row-copy p {
+    margin: 0;
+}
+
+.row-copy .intro-copy {
+    margin-bottom: 35px;
+    margin-top: 28px;
+}
+
+.row-copy .intro-copy:last-of-type {
+    margin-bottom: 95px;
+}
+
+.intro-names {
+    color: #212121;
+    font-size: 1.4em;
+    font-weight: 700;
 }
 
 .intro-link:hover,
 .intro-link:focus {
     color: #212121;
+    text-decoration: none;
 }
 
+.copy-link {
+    font-size: 1em;
+}
 
 /* FOOTER */
 
